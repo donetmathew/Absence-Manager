@@ -18,5 +18,10 @@ export const tableHeaders =[
     {
         header:"Status",
         fieldId:"status"
+    },
+    {
+        header:"",
+        fieldId:"view Details",
+        link:true
     }
 ]
