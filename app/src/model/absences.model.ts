@@ -16,6 +16,11 @@ export interface absencesType {
     name? :string
 }
 
+export interface absencesFilter{
+    label:string,
+    value:string
+}
+
 export interface TableHeaders{
     header:string,
     fieldId:string

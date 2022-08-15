@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { absencesType, TableHeaders } from '../../model/absences.model';
 import { Modal } from '../Modal/Modal';
 import ReactPaginate from 'react-paginate';
@@ -11,7 +11,7 @@ export const Table: React.FC<{
     const [selectedRow, setSelectedRow] = useState<absencesType | null>(null);
     const [pageNumber, setPageNumber] = useState<number>(0);
     const usersPerPage: number = 10;
-    const pagesVisited: number = pageNumber + usersPerPage;
+    const pagesVisited: number = pageNumber * usersPerPage;
     const pageCount = Math.ceil(data?.length / usersPerPage);
 
     const changePage = ({ selected }: { selected: number }) => {
@@ -22,6 +22,7 @@ export const Table: React.FC<{
         setSelectedRow(row);
         setOpenModal(true);
     }
+
 
     return (
         <div className='container'>
