@@ -10,8 +10,15 @@ export interface absencesType {
     memberNote: string,
     rejectedAt: string | null,
     startDate: string,
-    type: string
+    type: string,
+    status:string,
+    profile?:string,
     name? :string
+}
+
+export interface TableHeaders{
+    header:string,
+    fieldId:string
 }
 
 

@@ -18,6 +18,8 @@ const Dashboard:React.FC = () => {
     (async ()=>{
       setLoading(true);
       let data = mapAbsentMembers(absences?.payload,members?.payload) as Array<absencesType>;
+      console.log(data);
+      
       setAbsentMembers(data);
     })();
   },[])
@@ -26,13 +28,14 @@ const Dashboard:React.FC = () => {
    * 
    * @returns unified list merging prop name from absences
    */
-  const mapAbsentMembers = (absences:Array<absencesType>, members:Array<membersType>)=>{
+  const mapAbsentMembers = (absences:Array<any>, members:Array<membersType>)=>{
     return absences.map((item)=>{
       let matchedUser:any = members.find(el => item.userId === el.userId )
       if(matchedUser){
         return {
           ...item,
           name:matchedUser?.name,
+          profile:matchedUser?.image,
           status: getLeaveStatus(item)
         }
       } else{
